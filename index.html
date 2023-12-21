@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang=pl>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../css/style_index.css">
+        <title>podstrona</title>
+        <style>
+
+            body {
+                background-color: transparent;
+                animation-name: content_show;
+                animation-duration: 1s;
+            }
+
+            /* width */
+            ::-webkit-scrollbar {
+                width: 10px;
+                display: block;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: #011a40;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: #022250;
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #022f74;
+            }
+
+           
+            
+        </style>
+        <script>
+            const all_collapsed = true;
+
+
+            function init_collapse() {
+                var collapsibles = document.getElementsByClassName("collapse");
+                var collaps2 = document.getElementsByClassName("collapsing");
+
+                for (i = 0; i < collaps2.length; i++) {
+                    if(all_collapsed){
+                        collaps2[i].className = collaps2[i].className.replace(" collapsed", "") + " collapsed";
+                    }
+                }
+                for (i = 0; i < collapsibles.length; i++) {
+                    if (collaps2[i].className.replace(" collapsed", "") == collaps2[i].className) {
+                        collapsibles[i].childNodes[0].textContent = "v " + collapsibles[i].childNodes[0].textContent;
+                        
+                    }
+                    else{
+                        collapsibles[i].childNodes[0].textContent = "> " + collapsibles[i].childNodes[0].textContent;
+                    }
+                }
+            }
+            
+
+            function Collapse(id, button) {
+                var collapsibles = document.getElementsByClassName("collapsing");
+                
+                for (i = 0; i < collapsibles.length; i++) {
+                    
+                    if (collapsibles[i].className.replace("collapsing", "") == id || collapsibles[i].className.replace(" collapsing", "") == id) {
+                        
+                        collapsibles[i].className = collapsibles[i].className + " collapsed";
+                        button.childNodes[0].textContent = "> " + button.childNodes[0].textContent.replace("v ", "");
+                    }
+
+                    else if (collapsibles[i].className.replace("collapsing", "").replace(" collapsed", "") == id || collapsibles[i].className.replace(" collapsing", "").replace(" collapsed", "") == id) {
+                        
+                        collapsibles[i].className = collapsibles[i].className.replace(" collapsed", "");
+                        button.childNodes[0].textContent = "v " + button.childNodes[0].textContent.replace("> ", "");
+                    }
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <p class="white text center" id="top">
+            <span class="orange">CSS</span> - Kaskadowe arkusze stylów (ang. <span class="green">Cascading Style Sheets</span>) to język służący do opisu formy prezentacji (wyświetlania) <span class="yellow">stron WWW</span>. <span class="orange">CSS</span> został opracowany przez organizację W3C w 1996 r. jako potomek języka <span class="orange">DSSSL</span> przeznaczony do używania w połączeniu z <span class="orange">SGML</span>-em. Pierwszy szkic <span class="orange">CSS</span> zaproponował w 1994 r. <span class="green">Håkon Wium Lie</span>.
+            Arkusz stylów <span class="orange">CSS</span> to lista <span class="yellow">dyrektyw</span> (tzw. reguł) ustalających, w jaki sposób ma zostać wyświetlana przez <span class="yellow">przeglądarkę internetową</span> zawartość wybranego elementu (lub elementów) <span class="orange">(X)HTML</span> lub <span class="orange">XML</span>. Można w ten sposób opisać wszystkie pojęcia odpowiedzialne za prezentację elementów <span class="yellow">dokumentów internetowych</span>, takie jak <span class="yellow">rodzina czcionek</span>, <span class="yellow">kolor tekstu</span>, <span class="yellow">marginesy</span>, <span class="yellow">odstęp międzywierszowy</span> lub nawet <span class="yellow">pozycja danego elementu</span> względem innych <span class="yellow">elementów</span> bądź <span class="yellow">okna</span> przeglądarki. Wykorzystanie <span class="yellow">arkuszy stylów</span> daje znacznie większe możliwości pozycjonowania elementów na stronie, niż oferuje sam <span class="orange">(X)HTML</span>.
+        </p>
+        <br>
+        
+        
+        <hr>
+        <h3><button onclick="Collapse('zapis', this)" id="zapis" class="collapse"><span class="yellow">Zapis kodu w CSS:</span></button></h3><br>
+        <div class="zapis collapsing"><div class="center"><ul class="white text">
+            <li><span class="blue">Selektory</span> - określają one styl <span class="blue">znaczników</span> <span class="orange">HTML</span> <br> np. <span class="blue">div</span> { }</li>
+            <li><span class="green">Właściwości</span> - przedstawiają konkretne parametry stylu <br> np. <span class="green">color</span></li>
+            <li><span class="red">Wartości</span> - opisują wartości podane do <span class="green">właściwości</span> <br> np. <span class="blue">span</span> {<span class="green">width</span>:<span class="red"> 60</span><span class="pink">px</span>;}</li>
+            <li><span class="orange">Klasy</span> - pozwalają dodawać te same ustawienia do wielu znaczników na raz <br> np. <span class="blue">.klasa_1</span> {<span class="green">background-color</span>:<span class="red"> pink</span>;}</li>
+            <li><span class="yellow">Identyfikatory</span> - działają podobnie do klas, lecz mogą być przypisane tylko do jednego znacznika <br> np. <span class="blue">#identyfikator_1</span> {<span class="green">font-size</span>:<span class="red"> 25</span><span class="pink">pt</span>;}</li>
+        </ul></div></div>
+        
+        <br>
+        <br>
+        <br>
+
+
+        <hr>
+        <h3><button onclick="Collapse('wlasciwosci', this)" id="znaczniki" class="collapse"><span class="orange">Przykładowe właściwości CSS:</span></button></h3><br>
+        <div class="wlasciwosci collapsing"><table class="white text center_code">
+            <tr>
+                <td><span class="green">Właściwość</span>:</td><td>Do <span class="yellow">czego</span> <span class="green">służy</span>:</td>
+            </tr>
+            <tr>
+                <td><span class="green">color</span>:</td><td>Zmiana <span class="green">koloru</span> <span class="yellow">tekstu</span></td>
+            </tr>
+            <tr>
+                <td><span class="green">width</span>:</td><td>Zmiana <span class="green">wysokości</span> <span class="yellow">znacznika</span></td>
+            </tr>
+            <tr>
+                <td><span class="green">border</span>:</td><td>Ustawienie <span class="green">obramowania</span></td>
+            </tr>
+            <tr>
+                <td><span class="green">background-color</span>:</td><td>Zmiana <span class="green">koloru</span> <span class="yellow">tła</span></td>
+            </tr>
+            <tr>
+                <td><span class="green">margin</span>:</td><td>Dodanie <span class="green">marginesów</span></td>
+            </tr>
+        </table></div>
+
+        <br>
+        <br>
+        <br>
+        
+        <hr>
+        <h3><button onclick="Collapse('kod', this)" id="kod" class="collapse"><span class="white">Przykład kodu CSS:</span></button></h3><br>
+        <div class="kod collapsing"><div class="white code center_code">
+            <span class="blue">body</span> {<br>
+            &emsp;&emsp;<span class="green">background-color</span>: <span class="red">#979797</span>;<br>
+            }<br><br>
+            <span class="blue">p</span> {<br>
+                &emsp;&emsp;<span class="green">text-align</span>: <span class="red">center</span>;<br>
+                &emsp;&emsp;<span class="green">color</span>: <span class="red">green</span>;<br>
+            }<br><br>
+            <span class="blue">a</span> {<br>
+                &emsp;&emsp;<span class="green">text-decoration</span>: <span class="red">none</span>;<br>
+            }<br><br>
+            <span class="blue">h1</span> {<br>
+                &emsp;&emsp;<span class="green">border</span>: <span class="red">double 5<span class="pink">px</span> green</span>;<br>
+            }
+        </div></div>
+        <br><br>
+        
+        <hr>
+        <h3><button onclick="Collapse('quiz', this)" id="quiz" class="collapse"><span class="green">Quiz:</span></button></h3><br>
+        <div class="quiz collapsing"><div class="white text center">
+        <form action="mailto:jacek.sawinski@tm1.edu.pl" method=post>
+            <ol>
+            <li><div class="white text"><label for=zad1><span class="green">Właściwość</span> </label><input class="form_text green text center" type=text id=zad1 name=zad1 size=10>: powoduje dodanie <span class="green">obramowania</span> do <span class="blue">znacznika</span>.</div></li>
+            
+           
+
+            <li><div class="white text">W jaki sposób należy usunąć <span class="green">podkreślenie</span> ze znacznika &lt;<span class="blue">a</span>&gt;:</div><br>
+            <div class="white code center_code">
+              
+                <label class="container small" for="a" title="a"><span class="blue">a</span> {<br>&emsp;&emsp;<span class="green">underline</span>: <span class="red">none</span>;<br>}    
+                    <input class="zad2" type="radio" id="a" name="zad2" value="a">
+                    <span class="radio"></span>
+                </label><br>
+              
+                
+                <label class="container small" for="b" title="b"><span class="blue">a</span> {<br>&emsp;&emsp;<span class="green">text-decoration</span>: <span class="red">none</span>;<br>}
+                    <input class="zad2" type="radio" id="b" name="zad2" value="b">
+                    <span class="radio"></span>
+                </label><br>
+              
+                <label class="container small" for="c" title="c"><span class="blue">a</span> {<br>&emsp;&emsp;<span class="green">text-underline</span>: <span class="red">none</span>;<br>}  
+                    <input class="zad2" type="radio" id="c" name="zad2" value="c">
+                    <span class="radio"></span>
+                </label><br>
+              
+                <label class="container small" for="d" title="c"><span class="blue">a</span> {<br>&emsp;&emsp;<span class="green">decoration</span>: <span class="red">none</span>;<br>}  
+                    <input class="zad2" type="radio" id="d" name="zad2" value="c">
+                    <span class="radio"></span>
+                </label><br>
+
+            </div></li>
+
+
+            <li><div class="white text">
+                <div>W jaki sposób należy dodać znacznikowi &lt;<span class="blue">div</span>&gt; pojedyńcze czarne <span class="green">obramowanie</span> o grubości <span class="red">10</span> <span class="pink">pikseli</span>: <br></div><div class="white code center_code"><br><span class="blue">div</span> { &emsp;&emsp;
+                <select name=zad3 id=zad3>
+                    <option value=a>border: single 10pt black;</option>
+                    <option value=b>border: single 10pt dark;</option>
+                    <option value=c>border: solid 10pt dark;</option>
+                    <option value=d>border: solid 10pt black;</option>
+                    <option value=e>border: single 10px black;</option>
+                    <option value=f>border: single 10px dark;</option>
+                    <option value=g>border: solid 10px black;</option>
+                    <option value=h>border: solid 10px dark;</option>
+                    <option value=i>border: line 10px black;</option>
+                    <option value=j>border: line 10pt black;</option>
+                </select><br>}</div><br>
+                
+            </div></li>
+            </ol>
+
+            <div class="text">
+                <input class="form_text green text" type=reset value="Wyczyść">
+
+                <input class="form_text green text" type=submit value="Wyślij">
+            </div>
+            </form>
+        </div></div><br>
+        <hr>
+        <h3><a href="https://www.w3schools.com/css/" target="_blank"><span class="pink">Dowiedz się więcej!</span></a></h3><br>
+
+        <script>
+            init_collapse();
+        </script>
+    </body>
+</html>
