@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang=pl>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../css/style_index.css">
+        <title>podstrona</title>
+        <style>
+
+            body {
+                background-color: transparent;
+                animation-name: content_show;
+                animation-duration: 1s;
+            }
+
+            /* width */
+            ::-webkit-scrollbar {
+                width: 10px;
+                display: block;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: #011a40;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: #022250;
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #022f74;
+            }
+
+           
+            
+        </style>
+        <script>
+
+
+            const all_collapsed = true;
+
+            function init_collapse() {
+                var collapsibles = document.getElementsByClassName("collapse");
+                var collaps2 = document.getElementsByClassName("collapsing");
+
+                for (i = 0; i < collaps2.length; i++) {
+                    if(all_collapsed){
+                        collaps2[i].className = collaps2[i].className.replace(" collapsed", "") + " collapsed";
+                    }
+                }
+                for (i = 0; i < collapsibles.length; i++) {
+                    if (collaps2[i].className.replace(" collapsed", "") == collaps2[i].className) {
+                        collapsibles[i].childNodes[0].textContent = "v " + collapsibles[i].childNodes[0].textContent;
+                        
+                    }
+                    else{
+                        collapsibles[i].childNodes[0].textContent = "> " + collapsibles[i].childNodes[0].textContent;
+                    }
+                }
+            }
+            
+
+            function Collapse(id, button) {
+                var collapsibles = document.getElementsByClassName("collapsing");
+                
+                for (i = 0; i < collapsibles.length; i++) {
+                    
+                    if (collapsibles[i].className.replace("collapsing", "") == id || collapsibles[i].className.replace(" collapsing", "") == id) {
+                        
+                        collapsibles[i].className = collapsibles[i].className + " collapsed";
+                        button.childNodes[0].textContent = "> " + button.childNodes[0].textContent.replace("v ", "");
+                    }
+
+                    else if (collapsibles[i].className.replace("collapsing", "").replace(" collapsed", "") == id || collapsibles[i].className.replace(" collapsing", "").replace(" collapsed", "") == id) {
+                        
+                        collapsibles[i].className = collapsibles[i].className.replace(" collapsed", "");
+                        button.childNodes[0].textContent = "v " + button.childNodes[0].textContent.replace("> ", "");
+                    }
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <p class="white text center" id="top">
+           <span class="orange">C</span> – <span class="yellow">imperatywny</span>, <span class="yellow">proceduralny język programowania</span> ogólnego przeznaczenia, stworzony na początku lat <span class="green">70. XX wieku</span> przez <span class="green">Dennisa Ritchiego</span>, ówczesnego pracownika <span class="green">Bell Labs</span>. W języku <span class="orange">C</span> powstały narzędzia systemowe dla <span class="green">Uniksa</span>, a potem również kod systemu <span class="green">Unix</span>. Język <span class="orange">C</span> został ustandaryzowany w <span class="green">1989</span> roku przez <span class="orange">ANSI</span>. Od tego czasu jego rozwojem zajmuje się grupa robocza w ramach <span class="green">ISO</span>.
+
+            Język <span class="orange">C</span> powstawał jako rozwinięcie języka <span class="orange">B</span>, wzbogacając się stopniowo o kolejne <span class="yellow">funkcje</span>. Okresy najszybszego rozwoju języka <span class="orange">C</span> to lata <span class="green">1972–1973</span> oraz <span class="green">1977–1979</span>. Z kolei lata <span class="green">1980</span>. to czas zdobywania przez niego popularności, czego efektem była dostępność <span class="yellow">kompilatorów</span> dla praktycznie wszystkich używanych wtedy <span class="yellow">architektur komputerów</span> i <span class="yellow">systemów operacyjnych</span>.
+        </p>
+        <br>
+        
+        <hr>
+        <h3><button onclick="Collapse('zapis', this)" id="zapis" class="collapse"><span class="yellow">Zapis kodu w C:</span></button></h3><br>
+        <div class="zapis collapsing"><div class="center"><ul class="white text">
+            <li><span class="orange">Dane</span> - informacje zapisane w pamięci komputera <br> np. <span class="orange">60</span> lub <span class="orange">"abcdefg"</span></li>
+            <li><span class="blue">Obiekty</span> - przechowują <span class="orange">dane</span> <br> np. <span class="blue">int</span></li>
+            <li><span class="yellow">Zmienne</span> - pozwalają przechowywać, nazywać i modyfikować obiekty <br> np. <span class="blue">int</span> <span class="yellow">a</span> = <span class="orange">50</span>;</li>
+            <li><span class="green">Metody</span> - wykonują serie poleceń na <span class="blue">zmiennych</span> <br> np. <span class="blue">void</span> <span class="green">Main</span>() { <span class="blue">int</span> <span class="yellow">a</span> += <span class="orange">1</span>; }</li>
+            <li><span class="pink">Pętle i warunki</span> - pozwalają wykonywać komendy powtarzalnie lub wykonywać je jeżeli dany warunek jest spełniony <br> np. <span class="pink">while</span> (<span class="yellow">a</span> &lt; <span class="orange">10</span>) {<span class="blue">int</span> <span class="yellow">b</span> -= <span class="orange">5</span>;}<br>lub <span class="pink">if</span> (<span class="yellow">a</span> == <span class="orange">8</span>) {<span class="blue">string</span> <span class="yellow">b</span> = <span class="orange">"a jest równe osiem"</span>;}</li>
+            <li><span class="gray">Struktury</span> - mogą przechowywać <span class="yellow">zmienne</span> <br> np. <span class="blue">struct</span> <span class="gray">Struktura</span> {  <span class="blue">int</span> <span class="yellow">zmienna</span> = <span class="orange">5</span>; <span class="blue">char</span> <span class="yellow">litera</span> = <span class="orange">'a'</span>; };</li>
+
+        </ul></div></div>
+        
+        <br>
+        <br>
+        <br>
+
+        <hr>
+        <h3><button onclick="Collapse('obiekty', this)" id="znaczniki" class="collapse"><span class="orange">Przykładowe obiekty C:</span></button></h3><br>
+        <div class="obiekty collapsing"><table class="white text center_code">
+            <tr>
+                <td><span class="blue">Obiekt</span>:</td><td>Do <span class="yellow">czego</span> <span class="green">służy</span>:</td>
+            </tr>
+            <tr>
+                <td><span class="blue">int</span></td><td>Zapis <span class="green">liczb</span> <span class="yellow">całkowitych</span></td>
+            </tr>
+            <tr>
+                <td><span class="blue">float</span></td><td>Zapis <span class="green">liczb</span> <span class="yellow">zmiennoprzecinkowych</span></td>
+            </tr>
+            <tr>
+                <td><span class="blue">char</span></td><td>Zapis jednego <span class="green">symbola</span></td>
+            </tr>
+            <tr>
+                <td><span class="blue">bool</span></td><td>Zapis wartości <span class="green">prawda/fałsz</span></td>
+            </tr>
+        </table></div>
+
+        <br>
+        <br>
+        <br>
+        
+        <hr>
+        <h3><button onclick="Collapse('kod', this)" id="kod" class="collapse"><span class="white">Przykład kodu C:</span></button></h3><br>
+        <div class="kod collapsing"><div class="white code center_code">
+            #include &lt;<span class="orange">stdio.h</span>&gt;<br><br>
+            <span class="blue">int</span> <span class="green">main</span>()<br>
+            {<br>
+            &emsp;&emsp;<span class="green">printf</span>(<span class="orange">"Hello, World!"</span>);<br><br>
+            &emsp;&emsp;<span class="blue">return</span> <span class="orange">0</span>;<br>
+            }
+        </div></div>
+        <br><br>
+        
+        <hr>
+        <h3><button onclick="Collapse('quiz', this)" id="quiz" class="collapse"><span class="green">Quiz:</span></button></h3><br>
+        <div class="quiz collapsing"><div class="white text center">
+        <form action="mailto:jacek.sawinski@tm1.edu.pl" method=post>
+            <ol>
+            <li><div class="white text"><label for=zad1><span class="green">Funkcja</span> </label><input class="form_text green text center" type=text id=zad1 name=zad1 size=10>() wypisuje <span class="orange">tekst</span> do <span class="gray">konsoli</span>.</div></li>
+            
+           
+
+            <li><div class="white text">W jaki sposób należy stworzyć instancję struktury<br><br>
+                <div class="white code center_code">
+                <span class="blue">struct</span> <span class="gray">struktura_1</span><br>
+                {<br>
+                &emsp;&emsp;<span class="blue">int</span> <span class="yellow">zmienna_1</span> = <span class="orange">10</span>;<br>
+                };</div>
+            </div><br>
+            <div class="white code center_code">
+              
+                <label class="container small" for="a" title="a"><span class="gray">struktura1</span>();   
+                    <input class="zad2" type="radio" id="a" name="zad2" value="a">
+                    <span class="radio"></span>
+                </label><br>
+              
+                
+                <label class="container small" for="b" title="b"><span class="blue">struct</span> <span class="gray">struktura1</span>();   
+                    <input class="zad2" type="radio" id="b" name="zad2" value="b">
+                    <span class="radio"></span>
+                </label><br>
+              
+                <label class="container small" for="c" title="c"><span class="gray">struktura1</span> <span class="yellow">instancja_1</span>;
+                    <input class="zad2" type="radio" id="c" name="zad2" value="c">
+                    <span class="radio"></span>
+                </label><br>
+              
+                <label class="container small" for="d" title="c"><span class="blue">struct</span> <span class="gray">struktura1</span> <span class="yellow">instancja_1</span>; 
+                    <input class="zad2" type="radio" id="d" name="zad2" value="c">
+                    <span class="radio"></span>
+                </label><br>
+
+            </div></li>
+
+
+            <li><div class="white text">
+                <div>Jaką linię kodu należy wstawić w pustę miejscę żeby kod funkcjonował poprawnie:</div><br>
+                <div class="white code center_code">
+                    
+                    #include &lt;<span class="orange">stdio.h</span>&gt;<br>
+                    <br>
+                    <span class="blue">int</span> <span class="green">mnozenie</span>(<span class="blue">int</span> <span class="yellow">a</span>, <span class="blue">int</span> <span class="yellow">b</span>)<br>
+                    {<br>
+                        <select name=zad3 id=zad3>
+                            <option value=a>nie wstawiać nic</option>
+                            <option value=b>a * b;</option>
+                            <option value=c>multiply(a, b);</option>
+                            <option value=d>a x b;</option>
+                            <option value=e>return a * b;</option>
+                            <option value=f>return multiply(a, b);</option>
+                            <option value=g>return a x b;</option>
+                        </select><br>
+                    }<br>
+                    <br>
+                    <span class="blue">int</span> <span class="green">main</span>()<br>
+                    {<br>
+                    &emsp;&emsp;<span class="blue">return</span> <span class="green">mnozenie</span>(<span class="orange">5</span>, <span class="orange">10</span>);<br>
+                    }
+
+                    
+
+                    
+
+
+                <br></div><br>
+                
+            </div></li>
+            </ol>
+
+            <div class="text">
+                <input class="form_text green text" type=reset value="Wyczyść">
+
+                <input class="form_text green text" type=submit value="Wyślij">
+            </div>
+            </form>
+        </div></div><br>
+        <hr>
+        <h3><a href="https://www.programiz.com/c-programming" target="_blank"><span class="pink">Dowiedz się więcej!</span></a></h3><br>
+
+        <script>
+            init_collapse();
+        </script>
+    </body>
+</html>
