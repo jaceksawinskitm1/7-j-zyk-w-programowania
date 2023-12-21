@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang=pl>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../css/style_index.css">
+        <title>podstrona</title>
+        <style>
+
+            body {
+                background-color: transparent;
+                animation-name: content_show;
+                animation-duration: 1s;
+            }
+
+            /* width */
+            ::-webkit-scrollbar {
+                width: 10px;
+                display: block;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: #011a40;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: #022250;
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #022f74;
+            }
+
+           
+            
+        </style>
+        <script>
+
+
+            const all_collapsed = true;
+
+
+            function init_collapse() {
+                var collapsibles = document.getElementsByClassName("collapse");
+                var collaps2 = document.getElementsByClassName("collapsing");
+
+                for (i = 0; i < collaps2.length; i++) {
+                    if(all_collapsed){
+                        collaps2[i].className = collaps2[i].className.replace(" collapsed", "") + " collapsed";
+                    }
+                }
+                for (i = 0; i < collapsibles.length; i++) {
+                    if (collaps2[i].className.replace(" collapsed", "") == collaps2[i].className) {
+                        collapsibles[i].childNodes[0].textContent = "v " + collapsibles[i].childNodes[0].textContent;
+                        
+                    }
+                    else{
+                        collapsibles[i].childNodes[0].textContent = "> " + collapsibles[i].childNodes[0].textContent;
+                    }
+                }
+            }
+            
+
+            function Collapse(id, button) {
+                var collapsibles = document.getElementsByClassName("collapsing");
+                
+                for (i = 0; i < collapsibles.length; i++) {
+                    
+                    if (collapsibles[i].className.replace("collapsing", "") == id || collapsibles[i].className.replace(" collapsing", "") == id) {
+                        
+                        collapsibles[i].className = collapsibles[i].className + " collapsed";
+                        button.childNodes[0].textContent = "> " + button.childNodes[0].textContent.replace("v ", "");
+                    }
+
+                    else if (collapsibles[i].className.replace("collapsing", "").replace(" collapsed", "") == id || collapsibles[i].className.replace(" collapsing", "").replace(" collapsed", "") == id) {
+                        
+                        collapsibles[i].className = collapsibles[i].className.replace(" collapsed", "");
+                        button.childNodes[0].textContent = "v " + button.childNodes[0].textContent.replace("> ", "");
+                    }
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <p class="white text center" id="top">
+            <span class="orange">Python</span> – język programowania <span class="yellow">wysokiego poziomu ogólnego przeznaczenia</span>, o rozbudowanym pakiecie <span class="yellow">bibliotek standardowych</span>, którego ideą przewodnią jest <span class="green">czytelność i klarowność</span> <span class="yellow">kodu źródłowego</span>. Jego składnia cechuje się <span class="green">przejrzystością i zwięzłością</span>.
+            <span class="orange">Python</span> wspiera różne paradygmaty programowania: <span class="yellow">obiektowy</span>, <span class="yellow">imperatywny</span> oraz w mniejszym stopniu <span class="yellow">funkcyjny</span>. Posiada w pełni <span class="yellow">dynamiczny system typów</span> i <span class="yellow">automatyczne zarządzanie pamięcią</span>, będąc w tym podobnym do języków <span class="orange">Perl</span>, <span class="orange">Ruby</span>, <span class="orange">Scheme</span> czy <span class="orange">Tcl</span>. Podobnie jak inne <span class="yellow">języki dynamiczne</span> jest często używany jako <span class="yellow">język skryptowy</span>. Interpretery <span class="orange">Pythona</span> są dostępne na wiele <span class="yellow">systemów operacyjnych</span>.
+        </p>
+        <br>
+        
+        <hr>
+        <h3><button onclick="Collapse('zapis', this)" id="zapis" class="collapse"><span class="yellow">Zapis kodu w Pythonie:</span></button></h3><br>
+        <div class="zapis collapsing"><div class="center"><ul class="white text">
+            <li><span class="orange">Dane</span> - informacje zapisane w pamięci komputera <br> np. <span class="orange">60</span> lub <span class="orange">"abcdefg"</span></li>
+            <li><span class="yellow">Zmienne</span> - pozwalają przechowywać, nazywać i modyfikować dane <br> np. <span class="yellow">a</span> = <span class="orange">50</span></li>
+            <li><span class="green">Metody</span> - wykonują serie poleceń na <span class="blue">zmiennych</span> <br> np. <span class="blue">def</span> <span class="green">Main</span>():<br>&emsp;&emsp;<span class="yellow">a</span> += <span class="orange">1</span></li>
+            <li><span class="pink">Pętle i warunki</span> - pozwalają wykonywać komendy powtarzalnie lub wykonywać je jeżeli dany warunek jest spełniony <br> np. <span class="pink">for</span> <span class="yellow">a</span> <span class="blue">in</span> <span class="green">range</span>(<span class="orange">15</span>):<br>&emsp;&emsp;<span class="green">print</span>(<span class="yellow">a</span>)<br>lub <span class="pink">if</span> (<span class="yellow">a</span> == <span class="orange">8</span>):<br>&emsp;&emsp;<span class="green">print</span>(<span class="orange">"a jest równe osiem"</span>)</li>
+            <li><span class="gray center_code">Klasy</span> - mogą być instancjowane i przechowywać <span class="yellow">zmienne</span> i <span class="green">metody</span> <br> np. <span class="blue">class</span> <span class="gray">Klasa</span>:<br>&emsp;&emsp;<span class="blue">def</span> <span class="green">metoda</span>():<br>&emsp;&emsp;&emsp;&emsp;<span class="green">print</span>(<span class="orange">"metoda została wykonana"</span>)<br>&emsp;&emsp;<span class="yellow">zmienna</span> = <span class="orange">5</span></li>
+
+        </ul></div></div>
+        
+        <br>
+        <br>
+        <br>
+
+        <hr>
+        <h3><button onclick="Collapse('obiekty', this)" id="znaczniki" class="collapse"><span class="orange">Przykładowe pętle i warunki w Pythonie:</span></button></h3><br>
+        <div class="obiekty collapsing"><table class="white text center_code">
+            <tr>
+                <td><span class="pink">Pętla</span>:</td><td>Do <span class="yellow">czego</span> <span class="green">służy</span>:</td>
+            </tr>
+            <tr>
+                <td><span class="pink">for</span></td><td>Przejście przez podaną <span class="yellow">listę</span> <span class="green">danych</span></td>
+            </tr>
+            <tr>
+                <td><span class="pink">while</span></td><td>Powtarzanie komend aż <span class="yellow">warunek</span> przestanie być <span class="green">spełniony</span></td>
+            </tr>
+            <tr>
+                <td><span class="pink">if</span></td><td>Wykonanie komend jeżeli <span class="yellow">warunek</span> jest <span class="green">spełniony</span></td>
+            </tr>
+            <tr>
+                <td><span class="pink">else</span></td><td>Następuje po innej <span class="pink">pętli</span> lub <span class="pink">warunku</span> - jest wywoływany w wypadku <span class="green">poprzednik</span> nie zostanie <span class="yellow">wykonany</span></td>
+            </tr>
+            <tr>
+                <td><span class="pink">elif</span></td><td>Połączenie <span class="pink">if</span> i <span class="pink">else</span> - zostaje wykonany tylko jeżeli <span class="green">poprzednik</span> nie został <span class="yellow">wykonany</span> i <span class="green">warunek</span> jest <span class="yellow">spełniony</span></td>
+            </tr>
+        </table></div>
+
+        <br>
+        <br>
+        <br>
+        
+        <hr>
+        <h3><button onclick="Collapse('kod', this)" id="kod" class="collapse"><span class="white">Przykład kodu w Pythonie:</span></button></h3><br>
+        <div class="kod collapsing"><div class="white code center_code">
+            <span class="green">main</span>()<br>
+            <br>
+            <span class="blue">def</span> <span class="green">main</span>():<br>
+            &emsp;&emsp;<span class="pink">for</span> <span class="yellow">i</span> <span class="blue">in</span> <span class="green">range</span>(<span class="orange">10</span>):<br>
+            &emsp;&emsp;&emsp;&emsp;<span class="green">print</span>(<span class="orange">"Hello, World!"</span>)<br>
+            
+            
+        </div></div>
+        <br><br>
+        
+        <hr>
+        <h3><button onclick="Collapse('quiz', this)" id="quiz" class="collapse"><span class="green">Quiz:</span></button></h3><br>
+        <div class="quiz collapsing"><div class="white text center">
+        <form action="mailto:jacek.sawinski@tm1.edu.pl" method=post>
+            <ol>
+            <li><div class="white text"><label for=zad1><span class="blue">Słowo kluczowe</span> </label><input class="form_text blue text center" type=text id=zad1 name=zad1 size=10> pozwala <span class="blue">zdefiniować</span> <span class="green">metodę</span>.</div></li>
+            
+           
+
+            <li><div class="white text">W jaki sposób należy wypisać liczby od <span class="orange">0</span> do <span class="orange">9</span> do konsoli</div><br>
+            <div class="white code center_code">
+              
+                <label class="container small" for="a" title="a"><span class="pink">while</span> <span class="yellow">i</span> &lt; <span class="orange">10</span>:<br>&emsp;&emsp;<span class="green">print</span>(<span class="yellow">i</span>)
+                    <input class="zad2" type="radio" id="a" name="zad2" value="a">
+                    <span class="radio"></span>
+                </label><br>
+              
+                
+                <label class="container small" for="b" title="b"><span class="pink">for</span> <span class="yellow">i</span> &lt; <span class="orange">10</span>:<br>&emsp;&emsp;<span class="green">print</span>(<span class="yellow">i</span>)
+                    <input class="zad2" type="radio" id="b" name="zad2" value="b">
+                    <span class="radio"></span>
+                </label><br>
+              
+                <label class="container small" for="c" title="c"><span class="pink">while</span> <span class="yellow">i</span> <span class="blue">in</span> <span class="green">range</span>(<span class="orange">10</span>):<br>&emsp;&emsp;<span class="green">print</span>(<span class="yellow">i</span>)
+                    <input class="zad2" type="radio" id="c" name="zad2" value="c">
+                    <span class="radio"></span>
+                </label><br>
+              
+                <label class="container small" for="d" title="c"><span class="pink">for</span> <span class="yellow">i</span> <span class="blue">in</span> <span class="green">range</span>(<span class="orange">10</span>):<br>&emsp;&emsp;<span class="green">print</span>(<span class="yellow">i</span>)
+                    <input class="zad2" type="radio" id="d" name="zad2" value="c">
+                    <span class="radio"></span>
+                </label><br>
+
+            </div></li>
+
+
+            <li><div class="white text">
+                <div>Jaką linię kodu należy wstawić w pustę miejscę żeby kod funkcjonował poprawnie:</div><br>
+                <div class="white code center_code">
+                    <span class="yellow">a</span> = <span class="gray">klasa</span>()<br>
+                    <span class="yellow">a</span>.<span class="yellow">zmienna</span> = <span class="orange">5</span><br>
+                    <span class="yellow">a</span>.<span class="green">metoda</span>()<br>
+                    <br>
+                    <span class="blue">class</span> <span class="gray">klasa</span>:<br>
+                        <select name=zad3 id=zad3>
+                            <option value=a>nie wstawiać nic</option>
+                            <option value=b>zmienna</option>
+                            <option value=c>zmienna = 0</option>
+                            <option value=d>int zmienna</option>
+                            <option value=e>int zmienna = 0</option>
+                            <option value=f>def zmienna</option>
+                            <option value=g>def zmienna = 0</option>
+                        </select><br>
+                        &emsp;&emsp;<span class="blue">def</span> <span class="green">metoda</span>():<br>
+                        &emsp;&emsp;&emsp;&emsp;<span class="green">print</span>(<span class="orange">"Hello, World!"</span>)<br>
+
+
+
+                    
+                    
+                <br></div><br>
+                
+            </div></li>
+            </ol>
+
+            <div class="text">
+                <input class="form_text green text" type=reset value="Wyczyść">
+
+                <input class="form_text green text" type=submit value="Wyślij">
+            </div>
+            </form>
+        </div></div><br>
+        <hr>
+        <h3><a href="https://docs.python.org/3/tutorial/index.html" target="_blank"><span class="pink">Dowiedz się więcej!</span></a></h3><br>
+
+        <script>
+            init_collapse();
+        </script>
+    </body>
+</html>
