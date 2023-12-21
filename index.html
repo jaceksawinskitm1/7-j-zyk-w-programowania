@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang=pl>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../css/style_index.css">
+        <title>podstrona</title>
+        <style>
+
+            body {
+                background-color: transparent;
+                animation-name: content_show;
+                animation-duration: 1s;
+            }
+
+            /* width */
+            ::-webkit-scrollbar {
+                width: 10px;
+                display: block;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: #011a40;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: #022250;
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #022f74;
+            }
+
+           
+            
+        </style>
+        <script>
+            
+            const all_collapsed = true;
+
+            
+
+            function init_collapse() {
+                var collapsibles = document.getElementsByClassName("collapse");
+                var collaps2 = document.getElementsByClassName("collapsing");
+
+                for (i = 0; i < collaps2.length; i++) {
+                    if(all_collapsed){
+                        collaps2[i].className = collaps2[i].className.replace(" collapsed", "") + " collapsed";
+                    }
+                }
+                for (i = 0; i < collapsibles.length; i++) {
+                    if (collaps2[i].className.replace(" collapsed", "") == collaps2[i].className) {
+                        collapsibles[i].childNodes[0].textContent = "v " + collapsibles[i].childNodes[0].textContent;
+                        
+                    }
+                    else{
+                        collapsibles[i].childNodes[0].textContent = "> " + collapsibles[i].childNodes[0].textContent;
+                    }
+                }
+            }
+            
+
+            function Collapse(id, button) {
+                var collapsibles = document.getElementsByClassName("collapsing");
+                
+                for (i = 0; i < collapsibles.length; i++) {
+                    
+                    if (collapsibles[i].className.replace("collapsing", "") == id || collapsibles[i].className.replace(" collapsing", "") == id) {
+                        
+                        collapsibles[i].className = collapsibles[i].className + " collapsed";
+                        button.childNodes[0].textContent = "> " + button.childNodes[0].textContent.replace("v ", "");
+                    }
+
+                    else if (collapsibles[i].className.replace("collapsing", "").replace(" collapsed", "") == id || collapsibles[i].className.replace(" collapsing", "").replace(" collapsed", "") == id) {
+                        
+                        collapsibles[i].className = collapsibles[i].className.replace(" collapsed", "");
+                        button.childNodes[0].textContent = "v " + button.childNodes[0].textContent.replace("> ", "");
+                    }
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        
+
+        <p class="white text center" id="top">
+            <span class="orange">HTML</span> (ang. <span class="green">HyperText Markup Language</span>, hipertekstowy język znaczników) – język znaczników stosowany do tworzenia dokumentów hipertekstowych.
+            
+            <span class="orange">HTML</span> pozwala opisać strukturę informacji zawartych wewnątrz <span class="yellow">strony internetowej</span>, nadając odpowiednie znaczenie semantyczne poszczególnym fragmentom tekstu – formując <span class="yellow">hiperłącza</span>, <span class="yellow">akapity</span>, <span class="yellow">nagłówki</span>, <span class="yellow">listy</span> – oraz osadza w tekście dokumentu obiekty plikowe, na przykład <span class="yellow">multimedia</span>, lub elementy <span class="yellow">baz danych</span>, na przykład interaktywne formularze danych.
+            <span class="orange">HTML</span> umożliwia określenie wyglądu dokumentu w przeglądarce internetowej. Do szczegółowego opisu formatowania <span class="yellow">akapitów</span>, <span class="yellow">nagłówków</span>, użytych <span class="yellow">czcionek</span> i <span class="yellow">kolorów</span>, zalecane jest wykorzystywanie <span class="green">kaskadowych arkuszy stylów</span> (w skrócie <span class="orange">CSS</span>).
+        </p>
+        <br>
+        
+        <hr>
+        <h3><button onclick="Collapse('zapis', this)" id="zapis" class="collapse"><span class="yellow">Zapis kodu w HTML:</span></button></h3><br>
+        <div class="zapis collapsing"><div class="center"><ul class="white text">
+            <li><span class="blue">Znaczniki</span> - znajdują się pomiędzy symbolami &lt; &gt; <br> np. &lt;<span class="blue">div</span>&gt;</li>
+            <li><span class="yellow">Wartości liczbowe</span> - są używane do zapisywania wartości liczbowych <br> np. <span class="yellow">50</span></li>
+            <li><span class="green">Parametry</span> - znajdują się w środku znaczników <br> np. &lt;<span class="blue">p</span> <span class="green">width</span>=<span class="yellow">130</span>&gt;</li>
+            <li><span class="orange">Wartości tekstowe</span> - są często używane jako wartości parametrów <br> np. &lt;<span class="blue">span</span> <span class="green">class</span>=<span class="orange">"nazwa_klasy"</span>&gt;</li>
+            <li><span class="pink">Adresy URL</span> - służą do załączania linków lub multimediów <br> np. &lt;<span class="blue">a</span> <span class="green">href</span>=<span class="pink">"adres_strony.pl"</span>&gt;</li>
+        </ul></div></div>
+        
+        <br>
+        <br>
+        <br>
+
+        <hr>
+        <h3><button onclick="Collapse('znaczniki', this)" id="znaczniki" class="collapse"><span class="orange">Przykładowe znaczniki HTML:</span></button></h3><br>
+        <div class="znaczniki collapsing collapsed"><table class="white text center_code">
+            <tr>
+                <td><span class="blue">Znacznik</span>:</td><td>Do <span class="yellow">czego</span> <span class="green">służy</span>:</td>
+            </tr>
+            <tr>
+                <td>&lt;<span class="blue">div</span>&gt;</td><td>Tekst w <span class="yellow">blokach</span>, które można <span class="green">pozycjonować</span></td>
+            </tr>
+            <tr>
+                <td>&lt;<span class="blue">p</span>&gt;</td><td>Tworzenie <span class="yellow">paragrafów</span></td>
+            </tr>
+            <tr>
+                <td>&lt;<span class="blue">h1</span>&gt;</td><td><span class="yellow">Nagłówek</span> <span class="green">pierwszego</span> stopnia</td>
+            </tr>
+            <tr>
+                <td>&lt;<span class="blue">h2</span>&gt;</td><td><span class="yellow">Nagłówek</span> <span class="green">drugiego</span> stopnia</td>
+            </tr>
+            <tr>
+                <td>&lt;<span class="blue">h3</span>&gt;</td><td><span class="yellow">Nagłówek</span> <span class="green">trzeciego</span> stopnia</td>
+            </tr>
+            <tr>
+                <td>&lt;<span class="blue">ul</span>&gt;</td><td><span class="yellow">Lista</span> <span class="green">nieuporządkowana</span></td>
+            </tr>
+            <tr>
+                <td>&lt;<span class="blue">ol</span>&gt;</td><td><span class="yellow">Lista</span> <span class="green">uporządkowana</span></td>
+            </tr>
+            <tr>
+                <td>&lt;<span class="blue">table</span>&gt;</td><td><span class="yellow">Tabela</span></td>
+            </tr>
+        </table></div>
+
+        <br>
+        <br>
+        <br>
+        
+        
+        <hr>
+        <h3><button onclick="Collapse('kod', this)" id="kod" class="collapse"><span class="white">Przykład kodu HTML:</span></button></h3><br>
+        <div class="kod collapsing collapsed"><div class="white code center_code">
+            &lt;!<span class="blue">DOCTYPE</span> <span class="green">html</span>&gt;<br>
+            &lt;<span class="blue">html</span> <span class="green">lang</span>=<span class="orange">"pl"</span>&gt;<br>
+            &emsp;&emsp;&lt;<span class="blue">head</span>&gt;<br>
+            &emsp;&emsp;&emsp;&emsp;&lt;<span class="blue">title</span>&gt;Przykładowa strona&lt;/<span class="blue">title</span>&gt;<br>
+            &emsp;&emsp;&emsp;&emsp;&lt;<span class="blue">meta</span> <span class="green">charset</span>=<span class="orange">"UTF-8"</span>&gt;<br>
+                <br>
+            &emsp;&emsp;&emsp;&emsp;&lt;<span class="blue">meta</span> <span class="green">name</span>=<span class="orange">"viewport"</span> <span class="green">content</span>=<span class="orange">"width=device-width, initial-scale=1"</span>&gt;<br>
+                <br>
+            &emsp;&emsp;&emsp;&emsp;&lt;<span class="blue">link</span> <span class="green">rel</span>=<span class="orange">"stylesheet"</span> <span class="green">href</span>=<span class="orange">"plik.css"</span>&gt;<br>
+            &emsp;&emsp;&lt;/<span class="blue">head</span>&gt;<br>
+            &emsp;&emsp;&lt;<span class="blue">body</span>&gt;<br>
+            &emsp;&emsp;&emsp;&emsp;&lt;<span class="blue">h1</span>&gt;Przykładowa strona&lt;/<span class="blue">h1</span>&gt;<br>
+            &emsp;&emsp;&emsp;&emsp;&lt;<span class="blue">p</span>&gt;Zobacz też: &lt;<span class="blue">a</span> <span class="green">href</span>=<span class="pink">"https://google.com"</span>>Google&lt;/<span class="blue">a</span>&gt;<br>
+            &emsp;&emsp;&lt;/<span class="blue">body</span>&gt;<br>
+            &lt;/<span class="blue">html</span>&gt;<br>
+        </div></div>
+        <br><br>
+        
+
+        <hr>
+        <h3><button onclick="Collapse('quiz', this)" id="quiz" class="collapse"><span class="green">Quiz:</span></button></h3><br>
+        <div class="quiz collapsing collapsed"><div class="white text center">
+        <form action="mailto:jacek.sawinski@tm1.edu.pl" method=post>
+            <ol>
+            <li><div class="white text"><label for=zad1><span class="blue">Znacznik</span> <span class="blue">&lt;</span></label><input class="form_text white text center" type=text id=zad1 name=zad1 size=4><span class="blue">&gt;</span> pozwala na stworzenie <span class="green">nagłówka</span> <span class="yellow">pierwszego</span> stopnia.</div></li>
+            
+           
+
+            <li><div class="white text">W jaki sposób należy połączyć <span class="yellow">zewnętrzny</span> <span class="green">plik</span> <span class="orange">CSS</span> do <span class="green">pilku</span> <span class="orange">HTML</span>:</div><br>
+            <div class="white code center_code">
+              
+                <label class="container small" for="a" title="a">&lt;<span class="blue">link</span> <span class="green">type</span>=<span class="orange">"stylesheet"</span> <span class="green">rel</span>=<span class="orange">"text/css"</span> <span class="green">href</span>=<span class="orange">"style.css"</span>
+                    &gt;         
+                    <input class="zad2" type="radio" id="a" name="zad2" value="a">
+                    <span class="radio"></span>
+                </label><br>
+              
+                
+                <label class="container small" for="b" title="b">&lt;<span class="blue">script</span> <span class="green">type</span>=<span class="orange">"stylesheet"</span> <span class="green">rel</span>=<span class="orange">"text/css"</span> <span class="green">href</span>=<span class="orange">"style.css"</span>&gt;
+                    <input class="zad2" type="radio" id="b" name="zad2" value="b">
+                    <span class="radio"></span>
+                </label><br>
+              
+                <label class="container small" for="c" title="c">&lt;<span class="blue">link</span> <span class="green">rel</span>=<span class="orange">"stylesheet"</span> <span class="green">type</span>=<span class="orange">"text/css"</span> <span class="green">href</span>=<span class="orange">"style.css"</span>&gt;
+                    <input class="zad2" type="radio" id="c" name="zad2" value="c">
+                    <span class="radio"></span>
+                </label><br>
+              
+                <label class="container small" for="d" title="c">&lt;<span class="blue">script</span> <span class="green">rel</span>=<span class="orange">"stylesheet"</span> <span class="green">type</span>=<span class="orange">"text/css"</span> <span class="green">href</span>=<span class="orange">"style.css"</span>&gt;
+                    <input class="zad2" type="radio" id="d" name="zad2" value="c">
+                    <span class="radio"></span>
+                </label><br>
+
+            </div></li>
+
+            <li><div class="white text">
+                <div>W pliku <span class="orange">CSS</span> znajduje się wpis: <br></div><div class="white code center_code"><br><span class="yellow">#tekst</span> {<br> &emsp;&emsp;<span class="green">color</span>: <span class="red">red</span>;<br>}</div><br><div>Żeby <span class="yellow">tekst</span> w znaczniku &lt;<span class="blue">span</span>&gt; miał kolor <span class="red">czerwony</span> należy użyć <span class="green">parametru</span>:</div><br>
+                <select name=zad3 id=zad3>
+                    <option value=a>class="red"</option>
+                    <option value=b>class="tekst"</option>
+                    <option value=c>class="#red"</option>
+                    <option value=d>class="#tekst"</option>
+                    <option value=e>id="red"</option>
+                    <option value=f>id="tekst"</option>
+                    <option value=g>id="#red"</option>
+                    <option value=h>id="#tekst"</option>
+                    <option value=i>color="red"</option>
+                    <option value=j>color="tekst"</option>
+                </select>
+            </div></li>
+            </ol>
+
+            <div class="text">
+                <input class="form_text green text" type=reset value="Wyczyść">
+
+                <input class="form_text green text" type=submit value="Wyślij">
+            </div>
+            </form>
+        </div></div><br>
+
+        <hr>
+        <h3><a href="https://www.w3schools.com/html/" target="_blank"><span class="pink">Dowiedz się więcej!</span></a></h3><br>
+
+        <script>
+            init_collapse();
+        </script>
+    </body>
+</html>
