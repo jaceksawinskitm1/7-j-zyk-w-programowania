@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang=pl>
+    <head>
+        <meta charset="utf-8">
+        <title>7 języków programowania</title>
+        <link rel="stylesheet" type="text/css" href="css/style_index.css">
+
+        <script>
+            // kod jest potrzebny do poprawnego otwierania linków w podstronach
+            //const addresses = [ 'html/index.html',     'jezyki/css.html',  'jezyki/java.html',     'jezyki/cpp.html',  'jezyki/c.html',    'jezyki/cs.html',   'jezyki/python.html'];
+            //const aliases =   [ 'HTML',                 'CSS',              'JAVA',                 'C++',              'C',                'C#',               'PYTHON'];
+            const index_name = "index"
+            const path_prefix = window.location.href.replace(index_name + ".html", "")
+            var current_page_alias = 'HTML';
+            const hide_hash = ["LINKI", "GALERIA"]
+
+            function replace_hash(input){
+                return input.replace("#", "s");
+            }
+
+            function openTab(obj) {  
+
+                var alias = obj.className.replace('tablinks ', '');
+                alias = alias.replace(' active', '').replace(' no-button', '');
+                document.getElementById("frame").src = "jezyki/" + alias.toLowerCase() + "/index.html";  //addresses[aliases.indexOf(alias)];
+
+                
+                
+
+                updateTabs();
+            }
+
+            function openTabByAlias(alias) {    
+                document.getElementById("frame").src = "jezyki/" + alias.toLowerCase() + "/index.html";
+                updateTabs();
+            }
+
+            function updateTabs() {
+                var i, tablinks, iframe;
+                iframe = document.getElementById("frame");
+                current_page_alias = iframe.src.replace(path_prefix, "").replace("jezyki/", "").replace("/index.html", "").toUpperCase();
+                tablinks = document.getElementsByClassName("tablinks");
+                
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                for (i = 0; i < tablinks.length; i++) {
+                    if (tablinks[i].className.replace('tablinks ', '') == current_page_alias) {
+                        tablinks[i].className = tablinks[i].className + " active";
+                    }
+                }
+
+                hash_links = document.getElementsByClassName("hash_links");
+
+                for (i = 0; i < hash_links.length; i++) {
+                    hash_links[i].href = "jezyki/" + current_page_alias.toLowerCase() + "/index.html#" + hash_links[i].id;
+                    if(hide_hash.includes(current_page_alias)){
+                        hash_links[i].className += " hide";
+                    }
+                    else{
+                        hash_links[i].className = hash_links[i].className.replace(" hide", "");
+                    }
+                }
+            }
+
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <br>
+        <h1><span class="orange">7</span> <span class="green">języków</span> <span class="white">programowania</span><span class=yellow>;</span></h1>
+
+        <img src="foto/computer.png" alt="computer" class="bg-image blur">
+        <div class="background-cover"></div>
+        <br><br>
+        <div class="parent"><div class="tab">
+            <button class="tablinks HTML" onclick="openTab(this)"><span class="white">HTML</span><span class="orange">;</span></button><br>
+            <button class="tablinks CSS" onclick="openTab(this)"><span class="white">CSS</span><span class="orange">;</span></button><br>
+            <button class="tablinks JAVA" onclick="openTab(this)"><span class="white">Java</span><span class="orange">;</span></button><br>
+            <button class="tablinks C++" onclick="openTab(this)"><span class="white">C++</span><span class="orange">;</span></button><br>
+            <button class="tablinks C" onclick="openTab(this)"><span class="white">C</span><span class="orange">;</span></button><br>
+            <button class="tablinks CS" onclick="openTab(this)"><span class="white">C#</span><span class="orange">;</span></button><br>
+            <button class="tablinks PYTHON" onclick="openTab(this)"><span class="white">Python</span><span class="orange">;</span></button><br>
+            <button class="tablinks GALERIA" onclick="openTab(this)"><span class="white">Galeria zdjęć</span><span class="orange">;</span></button><br>
+            <button class="tablinks LINKI" onclick="openTab(this)"><span class="white">Dowiedz się więcej</span><span class="orange">;</span></button><br>
+            
+
+        </div><br>
+        <div class="tab secondary">
+            <a class="tablinks_anim hash_links" id="top" href="" target="strona"><span class="white">Opis</span><span class="orange">;</span></a><br>
+            <a class="tablinks_anim hash_links" id="zapis" href=""  target="strona"><span class="white">Zapis kodu</span><span class="orange">;</span></a><br>
+            <a class="tablinks_anim hash_links" id="znaczniki" href="" target="strona"><span class="white">Przykłady</span><span class="orange">;</span></a><br>
+            <a class="tablinks_anim hash_links" id="kod" href="" target="strona"><span class="white">Kod</span><span class="orange">;</span></a><br>
+            <a class="tablinks_anim hash_links" id="quiz" href="" target="strona"><span class="white" >Quiz</span><span class="orange">;</span></a><br>
+
+        </div></div>
+        <iframe id="frame" name="strona" src="jezyki/html/index.html" onload="updateTabs()"></iframe>
+        <div id="stopka" class="white text center">Jacek Sawiński 2ta</div>
+          
+        
+        <script>
+            openTabByAlias(current_page_alias);
+        </script>
+    </body>
+</html>
