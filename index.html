@@ -10,7 +10,7 @@
             //const addresses = [ 'html/index.html',     'jezyki/css.html',  'jezyki/java.html',     'jezyki/cpp.html',  'jezyki/c.html',    'jezyki/cs.html',   'jezyki/python.html'];
             //const aliases =   [ 'HTML',                 'CSS',              'JAVA',                 'C++',              'C',                'C#',               'PYTHON'];
             const index_name = "index"
-            const path_prefix = window.location.href.split(index_name + ".html")[0];
+            const path_prefix = window.location.href.split("/" + index_name + ".html")[0];
             var current_page_alias = 'HTML';
             const hide_hash = ["LINKI", "GALERIA"]
 
@@ -39,7 +39,7 @@
                 var i, tablinks, iframe;
                 iframe = document.getElementById("frame");
                 current_page_alias = iframe.src.replace(path_prefix, "").replace("jezyki/", "").split("/index.html")[0].toUpperCase();
-                alert(current_page_alias);
+                alert(iframe.src);
                 tablinks = document.getElementsByClassName("tablinks");
                 
                 for (i = 0; i < tablinks.length; i++) {
