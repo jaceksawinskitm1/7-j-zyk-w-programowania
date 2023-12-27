@@ -40,7 +40,7 @@
                 iframe = document.getElementById("frame");
                 current_page_alias = iframe.src.replace(path_prefix, "").replace("jezyki/", "").split("index.html")[0].toUpperCase();
                 tablinks = document.getElementsByClassName("tablinks");
-                alert("changed");
+                alert("changed2");
                 for (i = 0; i < tablinks.length; i++) {
                     tablinks[i].className = tablinks[i].className.replace(" active", "");
                 }
@@ -103,7 +103,9 @@
         
         <script>
             openTabByAlias(current_page_alias);
-            window.location.assign("https://jaceksawinskitm1.github.io/7-jezykow-programowania/");
+            if(window.location.href != "https://jaceksawinskitm1.github.io/7-jezykow-programowania/"){
+                window.location.assign("https://jaceksawinskitm1.github.io/7-jezykow-programowania/");
+            }
         </script>
     </body>
 </html>
