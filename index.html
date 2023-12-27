@@ -10,7 +10,7 @@
             //const addresses = [ 'html/index.html',     'jezyki/css.html',  'jezyki/java.html',     'jezyki/cpp.html',  'jezyki/c.html',    'jezyki/cs.html',   'jezyki/python.html'];
             //const aliases =   [ 'HTML',                 'CSS',              'JAVA',                 'C++',              'C',                'C#',               'PYTHON'];
             const index_name = "index"
-            const path_prefix = window.location.href.replace(index_name + ".html", "")
+            const path_prefix = window.location.href.replace(index_name + ".html", "").replace(/([^\/]*)$/, "")
             var current_page_alias = 'HTML';
             const hide_hash = ["LINKI", "GALERIA"]
 
