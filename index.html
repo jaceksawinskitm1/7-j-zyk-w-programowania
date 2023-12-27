@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8">
         <title>7 języków programowania</title>
-        <link rel="stylesheet" type="text/css" href="css/style_index.css">
+        <link rel="stylesheet" type="text/css" href="https://jaceksawinskitm1.github.io/7-jezykow-programowania/css/style_index.css">
 
         <script>
             // kod jest potrzebny do poprawnego otwierania linków w podstronach
             //const addresses = [ 'html/index.html',     'jezyki/css.html',  'jezyki/java.html',     'jezyki/cpp.html',  'jezyki/c.html',    'jezyki/cs.html',   'jezyki/python.html'];
             //const aliases =   [ 'HTML',                 'CSS',              'JAVA',                 'C++',              'C',                'C#',               'PYTHON'];
             const index_name = "index"
-            const path_prefix = window.location.href.split(index_name + ".html")[0];
+            const path_prefix = "https://jaceksawinskitm1.github.io/7-jezykow-programowania/";
             var current_page_alias = 'HTML';
             const hide_hash = ["LINKI", "GALERIA"]
 
@@ -38,7 +38,7 @@
             function updateTabs() {
                 var i, tablinks, iframe;
                 iframe = document.getElementById("frame");
-                current_page_alias = iframe.src.replace(path_prefix, "").replace("jezyki/", "").split("index.html")[0].toUpperCase();
+                current_page_alias = iframe.src.replace(path_prefix, "").replace("jezyki/", "").replace("index.html", "").toUpperCase();
                 tablinks = document.getElementsByClassName("tablinks");
                 alert("changed2");
                 for (i = 0; i < tablinks.length; i++) {
