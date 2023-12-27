@@ -38,7 +38,7 @@
             function updateTabs() {
                 var i, tablinks, iframe;
                 iframe = document.getElementById("frame");
-                current_page_alias = iframe.src.replace(path_prefix, "").replace("jezyki/", "").replace("/index.html", "").replace(/.+(\\.+)$/, "").toUpperCase();
+                current_page_alias = iframe.src.replace(path_prefix, "").replace("jezyki/", "").replace("/index.html", "").replace(/.+(\\.+)$/.*, "").toUpperCase();
                 alert(current_page_alias);
                 tablinks = document.getElementsByClassName("tablinks");
                 
