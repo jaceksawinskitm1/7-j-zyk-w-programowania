@@ -40,7 +40,7 @@
                 iframe = document.getElementById("frame");
                 current_page_alias = iframe.src.replace(path_prefix, "").replace("jezyki/", "").split("index.html")[0].toUpperCase();
                 tablinks = document.getElementsByClassName("tablinks");
-                alert(window.location.href);
+                alert("changed");
                 for (i = 0; i < tablinks.length; i++) {
                     tablinks[i].className = tablinks[i].className.replace(" active", "");
                 }
