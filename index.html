@@ -39,7 +39,7 @@
                 var i, tablinks, iframe;
                 iframe = document.getElementById("frame");
                 current_page_alias = iframe.src.replace(path_prefix, "").replace("jezyki/", "").split("index.html")[0].toUpperCase();
-                alert(iframe.src);
+                alert(iframe.location.href);
                 tablinks = document.getElementsByClassName("tablinks");
                 
                 for (i = 0; i < tablinks.length; i++) {
