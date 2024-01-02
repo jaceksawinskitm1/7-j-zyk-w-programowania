@@ -53,6 +53,7 @@ hr {
     animation-name: tabs_animation;
     animation-duration: 1s;
     background-color: inherit;
+    font-size:5vw;
 }
 .tablinks_anim {
     animation-name: tabs_animation;
